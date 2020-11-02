@@ -26,3 +26,16 @@ message("Merging complete")
 
 ## Step 2: Extracts only the measurements on the mean and standard deviation for each measurement. 
 message("Step 2: Statistics Extraction")
+
+features <- read.table("./Original Data/UCI HAR Dataset/features.txt") 
+colFilter <- grep("-(std|mean)\\(\\)", features[, 2])
+subfeatures <- features[colFilter,]
+stats_x_data <- merged_x_data[, colFilter]
+
+message("Statistics extraction complete.")
+
+## Step 4: Appropriately label the data set with descriptive variable names. 
+names(stats_x_data) <- subfeatures[, 2]
+message("Labelling complete.")
+
+## Step 3: Use descriptive activity names to name the activities in the data set
