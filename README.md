@@ -6,7 +6,7 @@ This repository is my submission for the coursera project linked to the "Getting
 
 This repository contains the following files:
 
-- `Code Book.md` which explains the variables used in the tidy set
+- `CodeBook.md` which explains the variables used in the tidy set
 - `tidy_set.txt`, the tidy set which contains the aggregated results of the initial dataset
 - `run_analysis.R` which creates `tidy_set.txt`
 
