@@ -34,8 +34,24 @@ stats_x_data <- merged_x_data[, colFilter]
 
 message("Statistics extraction complete.")
 
+## Step 3: Use descriptive activity names to name the activities in the data set
+message("Adding Activity names and generating final dataset")
+
+activities <- read.table("./Original Data/UCI HAR Dataset/activity_labels.txt")
+y_names <- left_join(merged_y_data, activities)
+final_set <- cbind(merged_sbj_data, y_names[, 2], stats_x_data)
+
+message("Done.")
+
 ## Step 4: Appropriately label the data set with descriptive variable names. 
-names(stats_x_data) <- subfeatures[, 2]
+names_col <- subfeatures[, 2]
+names(final_set) <- c("Subject", "Activity", names_col)
 message("Labelling complete.")
 
-## Step 3: Use descriptive activity names to name the activities in the data set
+## Step 5: From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
+message("Generating tidy (aggregated) set")
+
+agg_set <- aggregate( . ~ Subject + Activity, data = final_set, FUN = mean )
+write.table(agg_set, "tidy_set.txt", row.names = FALSE )
+
+message("File has been successfully generated in your working directory!")
