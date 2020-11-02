@@ -20,3 +20,7 @@ Here are the main steps of the `run_analysis.R` script:
 3. It adds the activity names and subject ids to the former set
 4. It modifies the column names in the set
 5. It performs the aggregation of the former set and creates `tidy_set.txt`
+
+# Data Source
+
+Davide Anguita, Alessandro Ghio, Luca Oneto, Xavier Parra and Jorge L. Reyes-Ortiz. A Public Domain Dataset for Human Activity Recognition Using Smartphones. 21th European Symposium on Artificial Neural Networks, Computational Intelligence and Machine Learning, ESANN 2013. Bruges, Belgium 24-26 April 2013. 
